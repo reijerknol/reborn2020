@@ -2,13 +2,16 @@ from flask import Flask, jsonify
 from flask import request
 from flask_cors import CORS
 import json
+import pymongo
+
 
 from werkzeug.exceptions import abort
 
 app = Flask(__name__)
 CORS(app)
 
-
+myClient = pymongo.MongoClient("mongodb://localhost:27017")
+myDb = myClient["mydatabase"]
 
 @app.route("/api/v1/company", methods=["POST"])
 
