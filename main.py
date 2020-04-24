@@ -8,10 +8,9 @@ from werkzeug.exceptions import abort
 app = Flask(__name__)
 CORS(app)
 
-path = '../data2/'
 
 
-@app.route("api/v1/company", methods=["POST"])
+@app.route("/api/v1/company", methods=["POST"])
 
 def create_company():
     if not request.json or not 'name' in request.json:
