@@ -3,6 +3,8 @@ from flask import request
 from src.app import App
 
 from werkzeug.exceptions import abort
+import json
+from bson import ObjectId
 
 # app = Flask(__name__)
 # CORS(app)
@@ -30,8 +32,8 @@ def create_company():
         'email': request.json['email'],
         'phone': request.json['phone']
     }
-    # print(company)
-    return jsonify({'task': company}), 201
+    app.mongo.companyDB.create(company)
+    return JSONEncoder().encode(company), 201
 
 
 class Company:
@@ -48,3 +50,10 @@ class Company:
         self.socialNetworks = socialNetworks
         self.email = email
         self.phone = phone
+
+
+class JSONEncoder(json.JSONEncoder):
+    def default(self, o):
+        if isinstance(o, ObjectId):
+            return str(o)
+        return json.JSONEncoder.default(self, o)

@@ -19,9 +19,6 @@ class App:
 
         # MongoDB
         self.mongo = Mongo()
-        print("HELLO I AM HERE")
-
-        print(self.mongo.app.name)
 
         # Success
         def success(self, data):
