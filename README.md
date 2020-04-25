@@ -25,7 +25,7 @@ To start the database:
 ```bash
 docker-compose up [-d]
 ```
-the -d will run it in deamon or detached mode (as background process)
+the -d will run it in daemon or detached mode (as background process)
 
 To stop the database:
 ```bash
