@@ -23,6 +23,7 @@ def create_company():
     if not request.json or not 'name' in request.json:
         abort(400)
     company = {
+        'type': request.json['type'],
         'name': request.json['name'],
         'address': request.json['address'],
         'businessType': request.json['businessType'],
@@ -33,8 +34,10 @@ def create_company():
         'socialNetworks': request.json['socialNetworks'],
         'email': request.json['email'],
         'phone': request.json['phone'],
-        'lat': request.json['lat'],
-        'lng': request.json['lng']
+        'coords': {
+            'lat': float(request.json['coords']['lat']),
+            'lng': float(request.json['coords']['lng'])
+            }
     }
     app.mongo.companyDB.create(company)
     return JSONEncoder().encode(company), 201
@@ -42,8 +45,14 @@ def create_company():
 @app.flask.route("/api/v1/company/<string:id>", methods=["GET"])
 def getCompanyById(id):
     company = app.mongo.companyDB.getCompanyById(id)
-    return JSONEncoder().encode(company), 201
+    app.mongo.companyDB.getAllMarkers()
+    return JSONEncoder().encode(company), 200
 
+
+@app.flask.route("/api/v1/getAllMarkers")
+def getAllMarkers():
+    markers = app.mongo.companyDB.getAllMarkers()
+    return JSONEncoder().encode(markers), 200
 
 class Company:
 

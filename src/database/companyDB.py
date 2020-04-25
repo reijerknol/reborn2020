@@ -14,6 +14,18 @@ class CompanyDB:
 
         foundCompany = self.collection.find_one(myquery)
         return foundCompany
+
+
+    def getAllMarkers(self):
+        ##TODO: code to return all coords with _id
+
+        markers = []
+        # allCoords = self.collection.student.find({"coords":1})
+        # print(allCoords)
+        # for x in allCoords:
+        #     print(x)
+        return markers
+
     # Read Record
     # def read(self, name, arg=False):
     #
