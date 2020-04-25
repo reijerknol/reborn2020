@@ -1,0 +1,51 @@
+# curl --location --request GET 'http://127.0.0.1:5000/api/v1/getAllMarkers'
+GET http://127.0.0.1:5000/api/v1/getAllMarkers
+
+###
+
+# curl --location --request POST 'http://127.0.0.1:5000/api/v1/company'
+#--header 'Content-Type: application/json'
+#--data-raw '{
+#	"type": "needHelp",
+#	"name":"name",
+#	"address": "adress",
+#	"businessType": "businessType",
+#	"issues": "issues",
+#	"numberOfJobs": "numberOfJobs",
+#	"whatHappened": "whatHappened",
+#	"whatNeed": "whatNeed",
+#	"socialNetworks": "socialNetworks",
+#	"email": "email",
+#	"phone": "phone",
+#	"coords": {
+#		"lat": "15.12334234",
+#		"lng": "45.23454355"
+#		}
+#}'
+POST http://127.0.0.1:5000/api/v1/company
+Content-Type: application/json
+
+{
+	"type": "needHelp",
+	"name":"name",
+	"address": "adress",
+	"businessType": "businessType",
+	"issues": "issues",
+	"numberOfJobs": "numberOfJobs",
+	"whatHappened": "whatHappened",
+	"whatNeed": "whatNeed",
+	"socialNetworks": "socialNetworks",
+	"email": "email",
+	"phone": "phone",
+	"coords": {
+		"lat": "15.12334234",
+		"lng": "45.23454355"
+		}
+}
+
+###
+
+GET http://localhost:5000/api/v1/company/5ea488a9f7823900063e646b
+Accept: application/json
+
+###

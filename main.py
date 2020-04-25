@@ -8,5 +8,4 @@ api = route()
 
 # Run the App
 if __name__ == '__main__':
-
     api.run(debug=True)

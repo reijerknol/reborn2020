@@ -1,11 +1,11 @@
-from flask import jsonify
-from flask import request
-from src.app import App
-from flask_cors import CORS
-
-from werkzeug.exceptions import abort
 import json
+
 from bson import ObjectId
+from flask import request
+from flask_cors import CORS
+from werkzeug.exceptions import abort
+
+from src.app import App
 
 # app = Flask(__name__)
 # CORS(app)
@@ -13,7 +13,8 @@ from bson import ObjectId
 app = App()
 CORS(app.flask)
 
-#run the application that does database manipulation
+
+# run the application that does database manipulation
 def route():
     return app.flask
 
@@ -37,10 +38,11 @@ def create_company():
         'coords': {
             'lat': float(request.json['coords']['lat']),
             'lng': float(request.json['coords']['lng'])
-            }
+        }
     }
     app.mongo.companyDB.create(company)
     return JSONEncoder().encode(company), 201
+
 
 @app.flask.route("/api/v1/company/<string:id>", methods=["GET"])
 def getCompanyById(id):
@@ -53,6 +55,7 @@ def getCompanyById(id):
 def getAllMarkers():
     markers = app.mongo.companyDB.getAllMarkers()
     return JSONEncoder().encode(markers), 200
+
 
 class Company:
 
