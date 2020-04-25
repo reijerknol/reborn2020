@@ -25,7 +25,6 @@ def create_company():
         'issues': request.json['issues'],
         'numberOfJobs': request.json['numberOfJobs'],
         'whatHappened': request.json['whatHappened'],
-        'whatNeed': request.json['whatNeed'],
         'socialNetworks': request.json['socialNetworks'],
         'email': request.json['email'],
         'phone': request.json['phone']
@@ -36,7 +35,7 @@ def create_company():
 
 class Company:
 
-    def __init__(self, name, address, businessType, issues, numberOfJobs, whatHappened, whatNeed, socialNetworks, email,
+    def __init__(self, name, address, businessType, issues, numberOfJobs, whatHappened, socialNetworks, email,
                  phone):
         self.name = name
         self.address = address
@@ -44,7 +43,6 @@ class Company:
         self.issues = issues
         self.numberOfJobs = numberOfJobs
         self.whatHappened = whatHappened
-        self.whatNeed = whatNeed
         self.socialNetworks = socialNetworks
         self.email = email
         self.phone = phone
