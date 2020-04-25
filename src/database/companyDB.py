@@ -4,7 +4,6 @@ from bson.objectid import ObjectId
 class CompanyDB:
 
     def __init__(self, mongo):
-
         # API Database
         self.db = mongo["reborn2020"]
         self.collection = self.db["companies"]
@@ -15,14 +14,8 @@ class CompanyDB:
         foundCompany = self.collection.find_one(myquery)
         return foundCompany
 
-
     def getAllMarkers(self):
-        markers = []
-        allCoords = self.collection.find({"coords": 1})
-        print(allCoords)
-        for x in allCoords:
-            print(x)
-        return markers
+        return [x["coords"] for x in self.collection.find()]
 
     # Read Record
     # def read(self, name, arg=False):
