@@ -1,6 +1,7 @@
 from flask import jsonify
 from flask import request
 from src.app import App
+from flask_cors import CORS
 
 from werkzeug.exceptions import abort
 import json
@@ -10,6 +11,7 @@ from bson import ObjectId
 # CORS(app)
 
 app = App()
+CORS(app.flask)
 
 #run the application that does database manipulation
 def route():

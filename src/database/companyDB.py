@@ -13,7 +13,6 @@ class CompanyDB:
         myquery = {"_id": ObjectId(id)}
 
         foundCompany = self.collection.find_one(myquery)
-        print(foundCompany)
         return foundCompany
     # Read Record
     # def read(self, name, arg=False):
