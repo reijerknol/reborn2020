@@ -12,7 +12,7 @@ mongo = MongoClient('localhost', 27017)
 
 
 # Mongo
-class Mongo:
+class Mongo(object):
 
     def __init__(self):
         self.companyDB = CompanyDB(mongo)

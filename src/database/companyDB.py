@@ -1,20 +1,20 @@
 from bson.objectid import ObjectId
 
 
-class CompanyDB:
+class CompanyDB(object):
 
     def __init__(self, mongo):
         # API Database
         self.db = mongo["reborn2020"]
         self.collection = self.db["companies"]
 
-    def getCompanyById(self, id):
-        myquery = {"_id": ObjectId(id)}
+    def get_company_by_id(self, company_id):
+        myquery = {"_id": ObjectId(company_id)}
 
-        foundCompany = self.collection.find_one(myquery)
-        return foundCompany
+        found_company = self.collection.find_one(myquery)
+        return found_company
 
-    def getAllMarkers(self):
+    def get_all_markers(self):
         return [x["coords"] for x in self.collection.find()]
 
     # Read Record

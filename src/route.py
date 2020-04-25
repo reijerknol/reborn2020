@@ -21,7 +21,7 @@ def route():
 
 @app.flask.route("/api/v1/company", methods=["POST"])
 def create_company():
-    if not request.json or not 'name' in request.json:
+    if not request.json or 'name' not in request.json:
         abort(400)
     company = {
         'type': request.json['type'],
@@ -44,37 +44,45 @@ def create_company():
     return JSONEncoder().encode(company), 201
 
 
-@app.flask.route("/api/v1/company/<string:id>", methods=["GET"])
-def getCompanyById(id):
-    company = app.mongo.companyDB.getCompanyById(id)
-    app.mongo.companyDB.getAllMarkers()
+@app.flask.route("/api/v1/company/<company_id>", methods=["GET"])
+def get_company_by_id(company_id):
+    company = app.mongo.companyDB.get_company_by_id(company_id)
+    app.mongo.companyDB.get_all_markers()
     return JSONEncoder().encode(company), 200
 
 
 @app.flask.route("/api/v1/getAllMarkers")
-def getAllMarkers():
-    markers = app.mongo.companyDB.getAllMarkers()
+def get_all_markers():
+    markers = app.mongo.companyDB.get_all_markers()
     return JSONEncoder().encode(markers), 200
 
 
 class Company:
-
-    def __init__(self, name, address, businessType, issues, numberOfJobs, whatHappened, whatNeed, socialNetworks, email,
+    def __init__(self,
+                 name,
+                 address,
+                 business_type,
+                 issues,
+                 number_of_jobs,
+                 what_happened,
+                 what_need,
+                 social_networks,
+                 email,
                  phone):
         self.name = name
         self.address = address
-        self.businessType = businessType
+        self.businessType = business_type
         self.issues = issues
-        self.numberOfJobs = numberOfJobs
-        self.whatHappened = whatHappened
-        self.whatNeed = whatNeed
-        self.socialNetworks = socialNetworks
+        self.numberOfJobs = number_of_jobs
+        self.whatHappened = what_happened
+        self.whatNeed = what_need
+        self.socialNetworks = social_networks
         self.email = email
         self.phone = phone
 
 
 class JSONEncoder(json.JSONEncoder):
-    def default(self, o):
-        if isinstance(o, ObjectId):
-            return str(o)
-        return json.JSONEncoder.default(self, o)
+    def default(self, input_object):
+        if isinstance(input_object, ObjectId):
+            return str(input_object)
+        return json.JSONEncoder.default(self, input_object)
