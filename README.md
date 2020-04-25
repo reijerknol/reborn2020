@@ -12,12 +12,26 @@ TODO project doc here
     * Windows: `choco install docker` (I think)
     * or follow the install guide from the docker website.
 
+## Build Docker image
+
+A docker image can be build from the application.
+
+```bash
+docker build -t reborn2020 .
+```
+
+or with docker-compose
+
+```bash
+docker-compose build reborn2020
+```
+
 ## Run
 
 to run the application you need two things to run: 
 * The database and the wrapping application in this project
 
-### Run MongoDB
+### Run the application
 
 From the root of the project:
 
@@ -37,10 +51,16 @@ To reset the database completely:
 docker-compose down -v
 ```
 
-### Run Application
+### Run Application (standalone)
 
 ```bash
 python3 main.py
+```
+
+You might have to stop the build app in docker compose first.
+
+```bash
+docker-compose stop reborn2020
 ```
 
 # Extra tools

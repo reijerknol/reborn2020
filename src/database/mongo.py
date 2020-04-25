@@ -3,9 +3,11 @@ from pymongo import MongoClient
 
 from src.database.companyDB import CompanyDB
 
-# Databases
-mongo = MongoClient('localhost', 27017)
-# mongo = MongoClient('localhost', 27017, username="root", password="example")  # Ivo's config
+# Databases if running on local mongo
+# mongo = MongoClient('localhost', 27017)
+
+# If you use the docker-compose use the line below!!
+mongo = MongoClient('mongo', 27017, username="root", password="s3cr3t")
 
 
 # db = mongo["reborn2020"]

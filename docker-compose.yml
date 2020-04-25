@@ -9,7 +9,7 @@ services:
     restart: always
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_ROOT_PASSWORD: s3cr3t
 
   mongo-express:
     image: mongo-express
@@ -18,4 +18,16 @@ services:
       - 8081:8081
     environment:
       ME_CONFIG_MONGODB_ADMINUSERNAME: root
-      ME_CONFIG_MONGODB_ADMINPASSWORD: example
+      ME_CONFIG_MONGODB_ADMINPASSWORD: s3cr3t
+
+  reborn2020:
+    build:
+      dockerfile: Dockerfile
+      context: ./
+    image: reborn2020
+    ports:
+    - 5000:5000
+    depends_on:
+      - mongo
+    links:
+      - mongo

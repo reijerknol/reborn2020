@@ -1,9 +1,4 @@
-# curl --location --request GET 'http://127.0.0.1:5000/api/v1/get_all_markers'
-GET http://127.0.0.1:5000/api/v1/getAllMarkers
-
-###
-
-POST http://127.0.0.1:5000/api/v1/company
+POST http://localhost:5000/api/v1/company
 Content-Type: application/json
 
 {
@@ -28,5 +23,9 @@ Content-Type: application/json
 
 GET http://localhost:5000/api/v1/company/5ea488a9f7823900063e646b
 Accept: application/json
+
+###
+# curl --location --request GET 'http://127.0.0.1:5000/api/v1/get_all_markers'
+GET http://localhost:5000/api/v1/getAllMarkers
 
 ###
