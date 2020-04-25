@@ -1,4 +1,4 @@
-
+from bson.objectid import ObjectId
 
 
 class CompanyDB:
@@ -9,6 +9,12 @@ class CompanyDB:
         self.db = mongo["reborn2020"]
         self.collection = self.db["companies"]
 
+    def getCompanyById(self, id):
+        myquery = {"_id": ObjectId(id)}
+
+        foundCompany = self.collection.find_one(myquery)
+        print(foundCompany)
+        return foundCompany
     # Read Record
     # def read(self, name, arg=False):
     #

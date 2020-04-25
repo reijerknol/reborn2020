@@ -30,9 +30,16 @@ def create_company():
         'whatNeed': request.json['whatNeed'],
         'socialNetworks': request.json['socialNetworks'],
         'email': request.json['email'],
-        'phone': request.json['phone']
+        'phone': request.json['phone'],
+        'lat': request.json['lat'],
+        'lng': request.json['lng']
     }
     app.mongo.companyDB.create(company)
+    return JSONEncoder().encode(company), 201
+
+@app.flask.route("/api/v1/company/<string:id>", methods=["GET"])
+def getCompanyById(id):
+    company = app.mongo.companyDB.getCompanyById(id)
     return JSONEncoder().encode(company), 201
 
 
