@@ -1,11 +1,20 @@
-from flask import request
+from flask import request, Flask, jsonify
 from flask_cors import CORS
 from werkzeug.exceptions import abort
 
-from reborn2020.app import App
-from reborn2020.json import JSONEncoder
+from reborn2020.database.mongo import Mongo
+from reborn2020.encode.json import JSONEncoder
 
-app = App()
+
+class FlaskApp(object):
+    def __init__(self):
+        self.request = request
+        self.jsonify = jsonify
+        self.flask = Flask(__name__)
+        self.mongo = Mongo()
+
+
+app = FlaskApp()
 CORS(app.flask)
 
 

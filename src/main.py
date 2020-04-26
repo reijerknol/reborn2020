@@ -1,11 +1,16 @@
 #!/usr/bin/env python
+import sys
 
-# Import
-from reborn2020.route import route
+from reborn2020.endpoint.routes import route
 
-# REST API
-api = route()
 
-# Run the App
+def main(debug=False):
+    flask = route()
+    flask.run(host="0.0.0.0", debug=debug)
+
+
 if __name__ == '__main__':
-    api.run(host="0.0.0.0", debug=True)
+    if len(sys.argv) > 1 and sys.argv[1] == "--debug":
+        main(debug=True)
+    else:
+        main()
