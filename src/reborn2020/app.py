@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request, make_response
 
-from src.database.mongo import Mongo
+from reborn2020.database.mongo import Mongo
 
 
 class App(object):
