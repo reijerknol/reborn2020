@@ -20,7 +20,7 @@ class CompanyDB(object):
         # for x in database:
         #     markerList.append((x["coords"], x["_id"]))
         # print(markerList)
-        return [[x["coords"], x["_id"]] for x in self.collection.find()]
+        return [[x["coords"], x["_id"], x["type"]] for x in self.collection.find()]
 
     # Read Record
     # def read(self, name, arg=False):
