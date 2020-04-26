@@ -8,4 +8,5 @@ RUN pip3 install -r /opt/requirements.txt
 
 WORKDIR /opt/reborn2020
 
+EXPOSE 5000
 CMD ["python3", "main.py"]
