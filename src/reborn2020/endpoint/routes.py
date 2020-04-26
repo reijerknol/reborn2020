@@ -34,7 +34,6 @@ def create_company():
 @app.flask.route("/api/v1/company/<company_id>", methods=["GET"])
 def get_company_by_id(company_id):
     company = app.mongo.companyDB.get_company_by_id(company_id)
-    app.mongo.companyDB.get_all_markers()
     return JSONEncoder().encode(company), 200
 
 
