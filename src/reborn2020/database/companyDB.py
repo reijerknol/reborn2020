@@ -15,9 +15,9 @@ class CompanyDB(object):
         return found_company
 
     def get_all_markers(self):
-        # database = self.collection.find()
+        # reborn2020.database = self.collection.find()
         # markerList = []
-        # for x in database:
+        # for x in reborn2020.database:
         #     markerList.append((x["coords"], x["_id"]))
         # print(markerList)
         return [[x["coords"], x["_id"], x["type"]] for x in self.collection.find()]

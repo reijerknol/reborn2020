@@ -1,7 +1,7 @@
 # Import
 from pymongo import MongoClient
 
-from src.database.companyDB import CompanyDB
+from reborn2020.database.companyDB import CompanyDB
 
 # Databases if running on local mongo
 # mongo = MongoClient('localhost', 27017)

@@ -5,7 +5,7 @@ from flask import request
 from flask_cors import CORS
 from werkzeug.exceptions import abort
 
-from src.app import App
+from reborn2020.app import App
 
 # app = Flask(__name__)
 # CORS(app)
@@ -14,7 +14,7 @@ app = App()
 CORS(app.flask)
 
 
-# run the application that does database manipulation
+# run the application that does reborn2020.database manipulation
 def route():
     return app.flask
 

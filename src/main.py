@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 # Import
-from src.route import route
+from reborn2020.route import route
 
 # REST API
 api = route()

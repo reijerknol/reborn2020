@@ -63,24 +63,24 @@ docker-compose build reborn2020
 ## Run
 
 to run the application you need two things to run: 
-* The database and the wrapping application in this project
+* The reborn2020.database and the wrapping application in this project
 
 ### Run the application
 
 From the root of the project:
 
-To start the database:
+To start the reborn2020.database:
 ```bash
 docker-compose up [-d]
 ```
 the -d will run it in daemon or detached mode (as background process)
 
-To stop the database:
+To stop the reborn2020.database:
 ```bash
 docker-compose stop
 ```
 
-To reset the database completely:
+To reset the reborn2020.database completely:
 ```bash
 docker-compose down -v
 ```
