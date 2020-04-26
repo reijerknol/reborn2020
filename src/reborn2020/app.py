@@ -4,19 +4,10 @@ from reborn2020.database.mongo import Mongo
 
 
 class App(object):
-
     def __init__(self):
-
-        # Request
         self.request = request
-
-        # Jsonify
         self.jsonify = jsonify
-
-        # Flask Framework
         self.flask = Flask(__name__)
-
-        # MongoDB
         self.mongo = Mongo()
 
     def success(self, data):

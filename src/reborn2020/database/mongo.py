@@ -9,6 +9,7 @@ from reborn2020.database.companyDB import CompanyDB
 # If you use the docker-compose use the line below!!
 mongo = MongoClient('mongo', 27017, username="root", password="s3cr3t")
 
+
 # Mongo
 class Mongo(object):
 
