@@ -8,7 +8,7 @@ TODO project doc here
 * Python 3.6+ (or use the PyEnv)
 * The requirements.txt installed
 * Docker 
-    * macOS: `brew install docker`
+    * macOS: `brew cask install docker`
     * Windows: `choco install docker` (I think)
     * or follow the install guide from the docker website.
 
