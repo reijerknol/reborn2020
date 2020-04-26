@@ -12,6 +12,40 @@ TODO project doc here
     * Windows: `choco install docker` (I think)
     * or follow the install guide from the docker website.
 
+# Quick guide
+
+Here the quick guide to running in docker.
+
+* When not running yet...
+Build and run the application in docker-compose:
+
+```bash
+docker-compose build reborn2020
+docker-compose up -d
+```
+
+* Rebuild when already running:
+
+```bash
+docker-compose build reborn2020
+docker-compose stop reborn2020 
+docker-compose start reborn2020
+```
+
+* Stopping everything:
+
+```bash
+docker-compose stop
+```
+
+* Resetting everything:
+
+```bash
+docker-compose down -v
+```
+
+# The more complete guide
+
 ## Build Docker image
 
 A docker image can be build from the application.
